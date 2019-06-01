@@ -6,15 +6,18 @@ import styled from 'styled-components';
 
 const Body = styled.div` 
 background-color: grey;
-margin: 0;
+margin: 0 16px;
 padding: 0;
+
+
 `;
 
 function App() {
   return (
     <div className="App">
       <Body>
-<Header name="Sylvain"/>
+<Header />
+  <p>Hello !</p>
 </Body></div>
   );
 }

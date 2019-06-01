@@ -2,21 +2,25 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import { color } from "./colors";
+import {  devices  }  from "./mediaqueries";
 import logo from "../images/Logo-blue.svg"
 
 // Stylesheet
 
 const HeaderContainer = styled.div`
-  background-color: ${color.white};
-  width: 160px;
-  height: 100vh;
-  h1 {
-    font-size: 0;
+h1 {
+  z-index: 1;
+  font-size: 0;
 
-  }
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+}
+display: flex;
+justify-content: space-between;
+align-items: center;
+background-color: ${color.white};
+
+@media ${devices.laptop} {
+
+}
 `;
 
 const LogoContainter = styled.a`
@@ -29,20 +33,30 @@ const LogoContainter = styled.a`
 const LogoItem =styled.img``;
 
 const MenuContainer = styled.ul`
-display: flex;
-flex-direction: column;
+position: absolute;
+width: 80%;
+height: 100vh;
+background-color: pink;
+opacity: 0.7;
 margin: 0;
-padding: 0`;
+top: 0;
+left: 0;
+right: 0;
+`;
+
 
 const MenuItem = styled.li`
-list-style-type: none;
-  margin: 0;
-  padding: 0;
-  margin-top: 16px;
+
 `;
 const MenuLink = styled.a`
 `;
 
+const BurgerMenuContainer = styled.button`
+width: 40px;
+height: 40px;
+background-color: red;
+cursor: pointer;
+`;
 //Mapping /Looping (un loop en javascript)
 
 const tiles = [
@@ -56,6 +70,7 @@ class Header extends React.Component {
     return (
       <HeaderContainer>
         <h1><LogoContainter href="/"><LogoItem src={logo}></LogoItem></LogoContainter></h1>
+        <BurgerMenuContainer></BurgerMenuContainer>
         <MenuContainer>
           {tiles.map((tile, index) => (
             <MenuItem>
